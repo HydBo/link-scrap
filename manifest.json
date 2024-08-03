@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Link Extract",
+  "version": "1.0",
+  "description": "Automatically extracts links from saved domains on every webpage.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
